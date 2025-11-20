@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyakha Builders - Reliable South African Construction</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Set default font to Inter --><style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* New Global Fixed Video Background Style */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -20; /* Behind all content and overlay */
+        }
+        /* Global Overlay for Text Readability */
+        #global-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent layer */
+            z-index: -10; /* Above the video, below content */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Global Fixed Video Background --><video autoplay muted loop id="background-video">
+        <source src="background.mp4" type="video/mp4">
+        <!-- Fallback for browsers that don't support video --><div class="bg-sky-900 w-full h-full"></div>
+    </video>
+    
+    <!-- Global Fixed Overlay for Video --><div id="global-overlay"></div>
+
+    <!-- Header & Navigation --><header class="sticky top-0 z-50 bg-white shadow-md">
+        <!-- Increased py-8 padding to fit the significantly larger logo --><div class="container mx-auto px-4 py-8 flex justify-between items-center">
+            <!-- LOGO: Replaced text logo with logo.png image --><a href="#" class="flex items-center">
+                <!-- Increased logo size from h-24 to h-32 (very, very big) --><img src="logo.png" alt="Siyakha Builders Logo" class="h-32 w-auto">
+            </a>
+            
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-6 font-medium">
+                    <!-- Navigation Order: Home, Services, About, Contacts --><a href="#" class="text-gray-600 hover:text-sky-600 transition duration-300">Home</a>
+                    <a href="#services" class="text-gray-600 hover:text-sky-600 transition duration-300">Services</a>
+                    <a href="#about" class="text-gray-600 hover:text-sky-600 transition duration-300">About</a>
+                    <a href="#contact" class="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition duration-300">Contacts</a>
+                </nav>
+            </div>
+            
+            <!-- Mobile Menu Button (Hamburger) --><button id="mobile-menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown --><nav id="mobile-menu" class="hidden md:hidden bg-sky-800 text-white">
+            <a href="#" class="block py-2 px-4 hover:bg-sky-700">Home</a>
+            <a href="#services" class="block py-2 px-4 hover:bg-sky-700">Services</a>
+            <a href="#about" class="block py-2 px-4 hover:bg-sky-700">About</a>
+            <a href="#contact" class="block py-2 px-4 bg-amber-500 hover:bg-amber-600">Contacts</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section --><section class="relative min-h-[80vh] md:min-h-[60vh] flex items-center justify-center z-10">
+        <!-- Content positioned above the global video/overlay --><div class="container mx-auto px-4 py-24 relative z-20 text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight shadow-lg">Building South Africa's Future.</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-3xl mx-auto">Reliable, quality construction from Sandton to Cape Town. We deliver excellence, on time and on budget.</p>
+            <a href="#contact" class="inline-block px-8 py-3 bg-amber-500 text-sky-900 font-bold text-lg rounded-xl shadow-lg hover:bg-amber-400 transition transform hover:scale-105 duration-300">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- About Us Section --><!-- Added transparency bg-white/95 and z-10 for video background effect --><section id="about" class="py-16 md:py-24 bg-white bg-opacity-95 relative z-10">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4 text-sky-800 border-l-4 border-amber-500 pl-4">About Siyakha Builders</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Established in Johannesburg, Siyakha Builders (Zulu for "We are building") is a proudly South African construction firm committed to setting the highest standards of quality, safety, and integrity. For over a decade, we have partnered with homeowners, businesses, and government entities to successfully complete complex projects across Gauteng, the Western Cape, and KwaZulu-Natal.
+                    </p>
+                    <p class="text-lg text-gray-600">
+                        Our core philosophy is built on transparency, using locally sourced, SABS-approved materials, and ensuring every project is delivered by a team of highly skilled and compliant professionals. We are registered with the NHBRC and dedicated to the economic development of our country through ethical building practices.
+                    </p>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/600x400/3e5c76/ffffff?text=Our+Team+on+Site" alt="Construction team meeting on site" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-sky-800 opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section --><!-- Added transparency bg-gray-100/95 and z-10 for video background effect --><section id="services" class="py-16 md:py-24 bg-gray-100 bg-opacity-95 relative z-10">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-sky-800">Our Core Services</h2>
+            <!-- Updated the grid to support 4 columns on large screens (lg) and 2 columns on medium screens (md) --><div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1: Residential, Tiling & Roofing (General Building for Homes) --><div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:scale-[1.02] duration-300">
+                    <img src="https://placehold.co/600x350/a8dadc/1d3557?text=Luxury+Home+Build" alt="Residential Construction" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-sky-800 mb-3">Residential, Tiling & Roofing</h3>
+                        <p class="text-gray-600 text-sm">
+                            From new home builds and structural extensions to specialized tiling installation and expert roofing solutions. We manage all aspects of residential general building with high quality finishes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Commercial & Industrial Projects (General Building & Maintenance for Businesses) --><div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:scale-[1.02] duration-300">
+                    <img src="https://placehold.co/600x350/457b9d/1d3557?text=Commercial+Office+Fitout" alt="Commercial Office Fitout" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-sky-800 mb-3">Commercial Building & Maintenance</h3>
+                        <p class="text-gray-600 text-sm">
+                            Large-scale construction (office parks, retail fit-outs) and proactive general building maintenance contracts to ensure your business facilities are fully operational and compliant at all times.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Civil & Infrastructure --><div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:scale-[1.02] duration-300">
+                    <img src="https://placehold.co/600x350/1d3557/a8dadc?text=Road+Infrastructure+Work" alt="Civil Engineering Work" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-sky-800 mb-3">Civil & Bulk Infrastructure</h3>
+                        <p class="text-gray-600 text-sm">
+                            Specialised work in site preparation, earthworks, and foundational infrastructure for large developments, including bulk services, road construction, and utility trenching.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Service 4: Plumbing, Paving & Fencing (Dedicated Trade Services) --><div class="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:scale-[1.02] duration-300">
+                    <img src="https://placehold.co/600x350/34547c/f8f9fa?text=Fencing+and+Paving" alt="Specialized Services" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-sky-800 mb-3">Plumbing, Paving & Perimeter Fencing</h3>
+                        <p class="text-gray-600 text-sm">
+                            Dedicated teams for essential trade work: comprehensive plumbing solutions, expert paving installations (driveways, walkways), and secure perimeter and security fencing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section --><section id="testimonials" class="py-16 md:py-24 bg-sky-800 relative z-10 text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-2 border-amber-500 pb-2">Hear from Our South African Clients</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 (Sandton) --><div class="bg-white text-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-amber-500">
+                    <p class="italic mb-4">"The quality of the brickwork on our new home in Sandton is truly exceptional. The Siyakha team delivered ahead of schedule, with professionalism and a smile. Highly recommend!"</p>
+                    <p class="font-bold text-sky-800">- Thabo M.</p>
+                    <p class="text-sm text-gray-500">Sandton, Gauteng</p>
+                </div>
+
+                <!-- Testimonial 2 (Cape Town) --><div class="bg-white text-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-amber-500">
+                    <p class="italic mb-4">"From the initial tender process to the final handover, their professionalism was unmatched. They handled the challenging commercial fit-out in Cape Town perfectly. World-class service."</p>
+                    <p class="font-bold text-sky-800">- Lebo S.</p>
+                    <p class="text-sm text-gray-500">Cape Town, Western Cape</p>
+                </div>
+
+                <!-- Testimonial 3 (Stellenbosch) --><div class="bg-white text-gray-800 p-6 rounded-xl shadow-2xl border-t-4 border-amber-500">
+                    <p class="italic mb-4">"Reliable, honest, and meticulous. Getting the foundation right is everything, and these guys know their stuff. A true pleasure to work with on our agricultural development project."</p>
+                    <p class="font-bold text-sky-800">- Pieter V.</p>
+                    <p class="text-sm text-gray-500">Stellenbosch, Western Cape</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section --><!-- REDUCED PADDING (py-12 md:py-20) and MAX WIDTH (max-w-3xl) --><section id="faq" class="py-12 md:py-20 bg-white bg-opacity-95 relative z-10">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-sky-800">Professional FAQ</h2>
+            <div id="faq-container" class="space-y-4">
+                
+                <!-- FAQ Item 1 --><div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:bg-gray-200">
+                    <div class="flex justify-between items-center font-semibold text-sky-800" onclick="toggleFaq(1)">
+                        <span>1. What geographical areas do Siyakha Builders service?</span>
+                        <span id="icon-1">+</span>
+                    </div>
+                    <p id="answer-1" class="mt-3 text-gray-600 hidden">
+                        We primarily focus on major development hubs across South Africa, including the Gauteng Province (Johannesburg, Pretoria), Western Cape (Cape Town, Stellenbosch), and KwaZulu-Natal (Durban, Richards Bay). Project feasibility in other regions can be discussed upon consultation.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2 --><div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:bg-gray-200">
+                    <div class="flex justify-between items-center font-semibold text-sky-800" onclick="toggleFaq(2)">
+                        <span>2. Is Siyakha Builders registered with the NHBRC and CIDB?</span>
+                        <span id="icon-2">+</span>
+                    </div>
+                    <p id="answer-2" class="mt-3 text-gray-600 hidden">
+                        Yes, absolutely. We are fully registered with the National Home Builders Registration Council (NHBRC) and maintain the necessary grading with the Construction Industry Development Board (CIDB), ensuring we meet all regulatory standards for both residential and commercial projects.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 --><div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer transition duration-300 hover:bg-gray-200">
+                    <div class="flex justify-between items-center font-semibold text-sky-800" onclick="toggleFaq(3)">
+                        <span>3. How is the project timeline and budget managed?</span>
+                        <span id="icon-3">+</span>
+                    </div>
+                    <p id="answer-3" class="mt-3 text-gray-600 hidden">
+                        We use professional project management software to provide clients with real-time updates and transparent financial tracking. All timelines are agreed upon upfront, and change requests are handled via a formal variation order process to maintain budget integrity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section --><!-- REDUCED PADDING (py-12 md:py-20) and FORM INTERNAL PADDING (p-6) --><section id="contact" class="py-12 md:py-20 bg-gray-900 relative z-10 text-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-center mb-4 text-amber-500">Let's Discuss Your Project</h2>
+            <p class="text-center text-gray-400 mb-12">Fill out the form below to schedule a consultation with our project manager.</p>
+
+            <!-- FORM UPDATED FOR FORMSPREE --><form id="contact-form" action="https://formspree.io/f/mgvleedr" method="POST" class="space-y-6 bg-gray-800 p-6 rounded-xl shadow-3xl">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                    <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-amber-500 focus:border-amber-500 transition duration-200">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                            class="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-amber-500 focus:border-amber-500 transition duration-200">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone Number (e.g., 082 123 4567)</label>
+                    <input type="tel" id="phone" name="phone" required
+                            class="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-amber-500 focus:border-amber-500 transition duration-200">
+                </div>
+                <div>
+                    <label for="project-type" class="block text-sm font-medium text-gray-300 mb-1">Type of Project</label>
+                    <select id="project-type" name="project-type" required
+                            class="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-amber-500 focus:border-amber-500 transition duration-200 appearance-none">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="residential">Residential New Build</option>
+                        <option value="renovation">Major Renovation/Extension</option>
+                        <option value="commercial">Commercial/Office</option>
+                        <option value="industrial">Industrial/Warehouse</option>
+                        <option value="civil">Civil/Infrastructure</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Project Details / Message</label>
+                    <textarea id="message" name="message" rows="4" required
+                              class="w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:ring-amber-500 focus:border-amber-500 transition duration-200"></textarea>
+                </div>
+                <button type="submit"
+                        class="w-full px-6 py-3 bg-amber-500 text-gray-900 font-bold text-lg rounded-lg shadow-xl hover:bg-amber-400 transition transform hover:scale-[1.01] duration-300">
+                    Send Inquiry
+                </button>
+                <div id="form-message" class="mt-4 text-center text-sm font-medium hidden"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer --><footer class="bg-gray-800 text-gray-300 py-8 relative z-10">
+        <div class="container mx-auto px-4 text-center text-sm">
+            <p>&copy; 2025 Siyakha Builders. All Rights Reserved. | Proudly serving South Africa.</p>
+            <p class="mt-2">Contact: <a href="mailto:info@siyakhabuilders.co.za" class="hover:text-amber-500">info@siyakhabuilders.co.za</a> | Phone: 011 555 1234</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button (Right Side, Icon Only) --><!-- Using a common South African format for the placeholder number: +27 82 123 4567 --><a href="https://wa.me/27821234567" target="_blank" 
+        class="fixed bottom-6 right-6 z-50 
+               transition transform hover:scale-110 duration-300">
+        <img src="Whatsapp.png" alt="WhatsApp Contact" class="w-12 h-12">
+    </a>
+
+    <script>
+        // === FAQ Toggle Logic ===
+        function toggleFaq(id) {
+            const answer = document.getElementById(`answer-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            const isHidden = answer.classList.contains('hidden');
+
+            // Hide all other answers and reset icons
+            document.querySelectorAll('[id^="answer-"]').forEach(a => {
+                a.classList.add('hidden');
+            });
+            document.querySelectorAll('[id^="icon-"]').forEach(i => {
+                i.textContent = '+';
+            });
+
+            // Toggle the clicked one
+            if (isHidden) {
+                answer.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                answer.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+
+        // === Mobile Menu Toggle ===
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // === Contact Form Validation for Formspree Submission ===
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            
+            const formMessage = document.getElementById('form-message');
+            formMessage.classList.add('hidden'); // Start hidden
+            formMessage.classList.remove('text-red-400', 'text-green-400', 'text-amber-500');
+
+            // Client-side validation for better UX
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name === "" || email === "" || message === "") {
+                formMessage.textContent = "Please fill in all required fields before submitting.";
+                formMessage.classList.remove('hidden');
+                formMessage.classList.add('text-red-400');
+                event.preventDefault(); // Prevent form submission
+                return;
+            }
+
+            // Show a brief sending message before redirecting to Formspree page
+            formMessage.textContent = "Sending your inquiry...";
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('text-amber-500');
+
+            // No event.preventDefault() here, allowing the native form POST to Formspree
+        });
+    </script>
+</body>
+</html>
